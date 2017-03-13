@@ -1,11 +1,16 @@
-from django.shortcuts import render
 from django.template import loader
-from django.template.context import Context
 from django.http.response import HttpResponse
+from wm_app.models import WeightRcd
 
 # Create your views here.
 def index(req):
-#     posts = weight_rcd.objects.all()
-#     t = loader.get_template("archive.html")
-#     c = Context({'posts':posts})
-    return HttpResponse('''<h2>really???</h2>''')
+    user_list = WeightRcd.objects.all()[:2]
+    template = loader.get_template("webapp/index.html")
+    context = {
+        'user_list':user_list
+    }
+    return HttpResponse(template.render(context,req))
+
+def detail(req,user_id):
+    resp = "the user is: %s"
+    return HttpResponse(resp % user_id)

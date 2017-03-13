@@ -4,12 +4,15 @@ from django.db import models
 # Create your models here.
 class WeightRcd(models.Model):
     id = models.IntegerField(primary_key=True)
-    user_id = models.ForeignKey('UserInfo',on_delete=models.DO_NOTHING)
+#     user_id = models.ForeignKey('UserInfo',on_delete=models.DO_NOTHING)
+    user_id = models.IntegerField()
     weight_data = models.DecimalField(max_digits=8,decimal_places=2)
     record_date = models.DateTimeField()
     
     def __str__(self):
         return self.user_id+' in '+self.record_date+' \'weight is:'+self.weight_data
+    class Meta:
+        db_table = "t_weight_rcd"
       
 class UserInfo(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -25,4 +28,7 @@ class UserInfo(models.Model):
     address = models.TextField() 
     def __str__(self):
         return 'user id:'+self.id+", user name:"+self.name
+    
+    class Meta:
+        db_table = "t_user_info"
 #admin.register(Record)

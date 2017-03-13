@@ -1,1 +1,1 @@
-web: django server:app
+web: python manage.py runserver
