@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="chaohu" />
+{% extends "base.html" %} 
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}首页 - WM{% endblock %} 
+{% block page_content %}
+<div class="page-header">
+<!-- <form method="post"> -->
+<!-- 	<ul> -->
+<!-- 		<li>{{ form.hidden_tag() }}</li> -->
+<!-- 		<li>{{ form.name.label}}{{ form.name() }}</li> -->
+<!-- 		<li>{{ form.password.label}}{{ form.password() }}</li> -->
+<!-- 		<li>{{ form.submit()}}</li>  -->
+<!-- 	</ul> -->
+<!-- </form> -->
+<!-- 	<h1>Hello,{%if name %} {{ name }} -->
+<!-- 	{% else %}Stranger{% endif %}!</h1> -->
+</div>
+{{ wtf.quick_form(form) }}
+{% endblock %}
+</html>
+
